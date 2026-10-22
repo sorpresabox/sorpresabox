@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SorpresaBox: descubre productos interesantes para tecnología, hogar, estudio, accesorios y más.">
+<meta name="theme-color" content="#171323">
+<title>SorpresaBox — Descubre algo que te sorprenda</title>
+<style>
+:root{--ink:#171323;--purple:#7857e8;--purple2:#b9a5ff;--lilac:#f0ebff;--paper:#faf9ff;--muted:#6e6a7c;--line:#e9e4f3;--white:#fff;--pink:#ffe6ef;--green:#e1f7eb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+a{color:inherit}button,input{font:inherit}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.topline{background:#100e18;color:#eee8ff;text-align:center;font-size:.8rem;padding:8px 12px}
+header{background:var(--ink);color:white;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px #100e1818}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:1.25rem;font-weight:950;letter-spacing:.03em}.brandmark{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#b9a5ff,#7857e8);color:#171323;font-size:1.15rem}.brand span{color:#c8baff}
+nav{display:flex;gap:19px;flex-wrap:wrap}nav a{text-decoration:none;color:#e9e5f6;font-size:.91rem}nav a:hover{color:#c8baff}
+.hero{background:radial-gradient(ellipse at 80% 20%,#5b438e 0%,transparent 38%),linear-gradient(125deg,#171323 0%,#29203e 62%,#3d2c6c 100%);color:white;padding:58px 0 54px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:32px}
+.pill{display:inline-flex;gap:7px;align-items:center;border:1px solid #9c88d4;border-radius:99px;padding:6px 12px;color:#e5ddff;font-size:.79rem;font-weight:700}
+h1{font-size:clamp(2.55rem,6vw,4.8rem);line-height:.99;letter-spacing:-.045em;max-width:720px;margin:18px 0}
+.hero p{color:#e1dced;max-width:600px;font-size:1.05rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer}
+.btn-primary{background:#c6b7ff;color:#171323}.btn-ghost{border:1px solid #8f7bbd;color:white;background:#ffffff0a}
+.hero-visual{position:relative;min-height:300px;display:grid;place-items:center}
+.hero-visual img{width:100%;max-width:410px;aspect-ratio:1/1;object-fit:cover;border-radius:28px;box-shadow:0 22px 55px #0005;border:1px solid #ffffff28}
+.floating{position:absolute;left:0;bottom:22px;background:white;color:var(--ink);padding:13px 16px;border-radius:15px;box-shadow:0 12px 30px #0003;font-size:.88rem;font-weight:800}
+.floating small{display:block;color:var(--muted);font-weight:500}
+section{padding:45px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.eyebrow{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);font-weight:900;margin:0 0 7px}
+h2{font-size:clamp(1.55rem,3vw,2.1rem);letter-spacing:-.025em;margin:0}.sub{color:var(--muted);margin:7px 0 0;max-width:700px}
+.searchbar{display:flex;gap:9px;max-width:420px;width:100%}.searchbar input{min-width:0;flex:1;border:1px solid #dcd5eb;background:white;border-radius:12px;padding:12px 14px;outline-color:var(--purple)}
+.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.cat{display:flex;align-items:center;gap:11px;text-decoration:none;background:white;border:1px solid var(--line);border-radius:16px;padding:15px 12px;transition:.2s}
+.cat:hover,.card:hover{transform:translateY(-3px);box-shadow:0 12px 26px #2c16430d}.cat-icon{width:43px;height:43px;border-radius:13px;background:var(--lilac);display:grid;place-items:center;font-size:1.35rem;flex-shrink:0}.cat strong{display:block;font-size:.9rem}.cat small{color:var(--muted);font-size:.77rem}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:white;border:1px solid var(--line);border-radius:19px;padding:12px;transition:.2s;min-width:0;display:flex;flex-direction:column}
+.photo{position:relative;border-radius:13px;overflow:hidden;background:#f1eef8;aspect-ratio:1.15/1}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.card:hover .photo img{transform:scale(1.04)}
+.tag{display:inline-flex;align-self:flex-start;border-radius:99px;background:var(--lilac);color:#5a3bb6;font-size:.72rem;font-weight:850;padding:5px 9px;margin-top:12px}
+.tag.green{background:var(--green);color:#17613a}.tag.pink{background:var(--pink);color:#943454}
+.card h3{font-size:1.02rem;line-height:1.25;margin:9px 0 5px}.card p{font-size:.87rem;color:var(--muted);margin:0 0 12px;flex:1}
+.card .btn{width:100%;margin-top:auto;background:var(--ink);color:white;padding:10px 12px;font-size:.88rem}
+.card .btn:hover{background:#352650}.empty{display:none;grid-column:1/-1;padding:24px;background:white;border:1px dashed #cfc5e7;border-radius:16px;color:var(--muted);text-align:center}
+.feature-band{background:linear-gradient(110deg,#eee7ff,#f9f6ff);border:1px solid #e2d8ff;border-radius:24px;padding:25px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}
+.feature-band h2{max-width:650px}.feature-band p{color:#655a7d;margin-bottom:0}.feature-band .btn{background:var(--purple);color:white;white-space:nowrap}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.how{padding:20px;border:1px solid var(--line);border-radius:17px;background:white}.how-icon{font-size:1.6rem}.how h3{margin:10px 0 5px;font-size:1rem}.how p{margin:0;color:var(--muted);font-size:.9rem}
+.disclosure{background:#f0ebff;border:1px solid #ded2ff;border-radius:16px;padding:18px;color:#43365f;font-size:.91rem}
+footer{background:var(--ink);color:#e7e2f4;padding:34px 0;margin-top:16px}footer .footgrid{display:grid;grid-template-columns:1fr auto;gap:22px}footer p{color:#c1bad2;font-size:.88rem;max-width:680px}footer a{color:#d5c8ff}
+.hidden{display:none!important}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr .7fr}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.wrap{padding:0 15px}.nav{padding:13px 0}.nav{align-items:flex-start}nav{gap:12px}.hero{padding:42px 0}.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:0}.hero-visual img{max-width:300px;aspect-ratio:1.3/1}.floating{left:2px;bottom:10px}.categories{grid-template-columns:repeat(2,1fr);gap:9px}.cat{padding:11px 9px;gap:8px}.cat-icon{width:36px;height:36px}.grid{gap:11px}.card{padding:9px;border-radius:15px}.card h3{font-size:.94rem}.card p{font-size:.82rem}.feature-band{grid-template-columns:1fr;padding:20px}.feature-band .btn{justify-self:start}.how-grid{grid-template-columns:1fr}footer .footgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topline">✨ Ideas útiles, productos interesantes y hallazgos para descubrir</div>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#" aria-label="SorpresaBox inicio"><span class="brandmark">✦</span> SORPRESA<span>BOX</span></a>
+  <nav aria-label="Navegación principal"><a href="#categorias">Categorías</a><a href="#catalogo">Catálogo</a><a href="#destacados">Destacados</a><a href="#sobre">Cómo funciona</a></nav>
+ </div>
+</header>
+<main>
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <span class="pill">✦ TU PRÓXIMO GRAN HALLAZGO</span>
+   <h1>Descubre algo que te sorprenda.</h1>
+   <p>Explora ideas para tu día a día: tecnología, accesorios, hogar y productos curiosos que pueden hacerte la vida más práctica.</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Explorar catálogo ↓</a><a class="btn btn-ghost" href="#destacados">Ver destacados</a></div>
+  </div>
+  <div class="hero-visual">
+   <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85" alt="Productos y accesorios sobre una mesa" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85'">
+   <div class="floating">Nuevas ideas cada semana<small>Encuentra tu próximo favorito</small></div>
+  </div>
+ </div>
+</section>
+<section id="categorias">
+ <div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">Explora por interés</p><h2>¿Qué te gustaría descubrir?</h2><p class="sub">Elige una categoría y encuentra recomendaciones para distintos momentos.</p></div></div>
+  <div class="categories">
+   <a class="cat" href="#catalogo" data-filter="tecnologia"><span class="cat-icon">🎧</span><span><strong>Tecnología</strong><small>Gadgets y audio</small></span></a>
+   <a class="cat" href="#catalogo" data-filter="hogar"><span class="cat-icon">🏠</span><span><strong>Hogar</strong><small>Ideas prácticas</small></span></a>
+   <a class="cat" href="#catalogo" data-filter="estudio"><span class="cat-icon">📚</span><span><strong>Estudio</strong><small>Organización</small></span></a>
+   <a class="cat" href="#catalogo" data-filter="accesorios"><span class="cat-icon">🎒</span><span><strong>Accesorios</strong><small>Para cada día</small></span></a>
+   <a class="cat" href="#catalogo" data-filter="curiosos"><span class="cat-icon">🎁</span><span><strong>Hallazgos</strong><small>Ideas curiosas</small></span></a>
+  </div>
+ </div>
+</section>
+<section id="destacados" style="padding-top:8px">
+ <div class="wrap">
+  <div class="feature-band">
+   <div><p class="eyebrow">Selección de la semana</p><h2>Hallazgos destacados</h2><p>Ideas que vale la pena explorar. Los precios y descuentos se mostrarán solo cuando estén comprobados.</p></div>
+   <a class="btn" href="#catalogo">Ver productos</a>
+  </div>
+ </div>
+</section>
+<section id="catalogo">
+ <div class="wrap">
+  <div class="section-head">
+   <div><p class="eyebrow">Nuestro catálogo</p><h2>Encuentra tu próximo favorito</h2><p class="sub">Estas fichas son ejemplos de categorías, no ofertas ni productos disponibles confirmados.</p></div>
+   <div class="searchbar"><input id="search" type="search" placeholder="Buscar productos…" aria-label="Buscar productos"><button class="btn btn-primary" id="clear" type="button">Limpiar</button></div>
+  </div>
+  <div class="grid" id="productGrid">
+   <article class="card" data-category="tecnologia" data-search="audífonos auriculares bluetooth tecnología música">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80" alt="Audífonos de diadema" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80'"></div>
+    <span class="tag">Tecnología</span><h3>Audífonos para tu música</h3><p>Compara comodidad, autonomía y opiniones antes de elegir.</p><a class="btn product-link" href="#afiliados" data-product="Audífonos para tu música">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="tecnologia" data-search="parlante altavoz audio música bluetooth">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80" alt="Parlante portátil"></div>
+    <span class="tag">Tecnología</span><h3>Audio para acompañarte</h3><p>Una idea para escuchar música en casa o al salir.</p><a class="btn product-link" href="#afiliados" data-product="Audio para acompañarte">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="hogar" data-search="lámpara luz escritorio dormitorio hogar">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80" alt="Lámpara de escritorio"></div>
+    <span class="tag">Hogar</span><h3>Ilumina tu espacio</h3><p>Ideas de iluminación para leer, estudiar o relajarte.</p><a class="btn product-link" href="#afiliados" data-product="Ilumina tu espacio">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="estudio" data-search="escritorio trabajo estudio computadora organización">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Espacio de trabajo con computadora"></div>
+    <span class="tag">Estudio</span><h3>Mejora tu zona de estudio</h3><p>Accesorios e ideas para organizar tu escritorio.</p><a class="btn product-link" href="#afiliados" data-product="Mejora tu zona de estudio">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="accesorios" data-search="mochila bolso viaje accesorios">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Mochila para uso diario"></div>
+    <span class="tag">Accesorios</span><h3>Compañera para cada día</h3><p>Busca una mochila que se adapte a tus actividades.</p><a class="btn product-link" href="#afiliados" data-product="Compañera para cada día">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="hogar" data-search="taza café cocina hogar regalo">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=700&q=80" alt="Taza de cerámica"></div>
+    <span class="tag">Hogar</span><h3>Pequeños detalles para casa</h3><p>Objetos cotidianos que también pueden ser un buen regalo.</p><a class="btn product-link" href="#afiliados" data-product="Pequeños detalles para casa">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="curiosos" data-search="reloj accesorio estilo regalo">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Reloj de pulsera"></div>
+    <span class="tag">Hallazgos</span><h3>Accesorios para regalar</h3><p>Compara estilos, materiales y condiciones del vendedor.</p><a class="btn product-link" href="#afiliados" data-product="Accesorios para regalar">Consultar producto ↗</a>
+   </article>
+   <article class="card" data-category="tecnologia" data-search="cámara tecnología fotografía gadget">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=80" alt="Cámara fotográfica"></div>
+    <span class="tag">Tecnología</span><h3>Explora la fotografía</h3><p>Antes de comprar, revisa características y compatibilidad.</p><a class="btn product-link" href="#afiliados" data-product="Explora la fotografía">Consultar producto ↗</a>
+   </article>
+   <div id="empty" class="empty">No encontramos coincidencias. Prueba con otra palabra.</div>
+  </div>
+ </div>
+</section>
+<section id="sobre">
+ <div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">Simple y transparente</p><h2>Cómo funciona SorpresaBox</h2><p class="sub">Queremos ayudarte a descubrir opciones sin ocultar cómo funciona la tienda.</p></div></div>
+  <div class="how-grid">
+   <div class="how"><div class="how-icon">🔎</div><h3>1. Descubre</h3><p>Explora categorías y lee recomendaciones antes de elegir.</p></div>
+   <div class="how"><div class="how-icon">🛍️</div><h3>2. Visita al vendedor</h3><p>Cuando los enlaces estén configurados, podrás visitar la página del vendedor para ver el precio y las condiciones reales.</p></div>
+   <div class="how"><div class="how-icon">💜</div><h3>3. Apoya el proyecto</h3><p>Algunos enlaces podrán ser de afiliado. Si realizas una compra válida, SorpresaBox podría recibir una comisión.</p></div>
+  </div>
+ </div>
+</section>
+<section id="afiliados">
+ <div class="wrap">
+  <div class="disclosure"><strong>Transparencia:</strong> algunos enlaces futuros pueden generar una comisión para SorpresaBox. Esta versión es una maqueta: los botones no llevan a vendedores ni productos concretos todavía. Las imágenes son ilustrativas y no necesariamente muestran el producto exacto que se recomiende. No se muestran descuentos ni precios inventados. Antes de publicar, reemplaza las imágenes ilustrativas por imágenes permitidas del producto y añade enlaces de afiliado válidos.</div>
+ </div>
+</section>
+</main>
+<footer><div class="wrap footgrid"><div><a class="brand" href="#"><span class="brandmark">✦</span> SORPRESA<span>BOX</span></a><p>Descubre algo que te sorprenda. Recomendaciones de productos, ideas prácticas y hallazgos para explorar.</p></div><div><strong>Importante</strong><p>Comprueba siempre el precio final, envío, disponibilidad, garantía y condiciones directamente con el vendedor.</p></div></div></footer>
+<script>
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('.card')];
+const empty=document.getElementById('empty');
+let activeCategory='';
+function filterCards(){
+ const q=search.value.trim().toLocaleLowerCase('es');
+ let visible=0;
+ cards.forEach(card=>{
+  const matchText=(card.dataset.search||'').toLocaleLowerCase('es').includes(q) || card.innerText.toLocaleLowerCase('es').includes(q);
+  const matchCat=!activeCategory||card.dataset.category===activeCategory;
+  const show=matchText&&matchCat;card.classList.toggle('hidden',!show);if(show)visible++;
+ });
+ empty.style.display=visible?'none':'block';
+}
+search.addEventListener('input',filterCards);
+document.getElementById('clear').addEventListener('click',()=>{search.value='';activeCategory='';filterCards();});
+document.querySelectorAll('[data-filter]').forEach(link=>link.addEventListener('click',()=>{activeCategory=link.dataset.filter;filterCards();}));
+document.querySelectorAll('.product-link').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();alert('Este botón todavía es demostrativo. Cuando tengas tu enlace de afiliado aprobado para este producto, reemplaza este botón por la URL real del vendedor.');}));
+</script>
+</body>
+</html>
